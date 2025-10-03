@@ -26,4 +26,8 @@ public class Customer {
     public boolean isFromLocation(String loc) {
         return location.equalsIgnoreCase(loc);
     }
+
+    public boolean isIncomeEqualOrGreaterThan(double value) {
+        return income >= value;
+    }
 }
