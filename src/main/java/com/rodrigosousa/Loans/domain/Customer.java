@@ -10,4 +10,20 @@ public class Customer {
     private String name;
     private Double income;
     private String location;
+
+    public boolean isIncomeEqualOrLowerThan(double value) {
+        return income <= value;
+    }
+
+    public boolean isIncomeBetween(double min, double max) {
+        return income >= min && income <= max;
+    }
+
+    public boolean isAgeLowerThan(int value) {
+        return age < value;
+    }
+
+    public boolean isFromLocation(String loc) {
+        return location.equalsIgnoreCase(loc);
+    }
 }
