@@ -16,4 +16,12 @@ public class Loan {
                 && customer.isAgeLowerThan(30)
                 && customer.isFromLocation("SP");
     }
+
+    public double getPersonalLoanInterestRate() {
+        if(isPersonalLoanAvailable()) {
+            return 4.0;
+        }
+
+        throw new LoanNotAvailableException();
+    }
 }
