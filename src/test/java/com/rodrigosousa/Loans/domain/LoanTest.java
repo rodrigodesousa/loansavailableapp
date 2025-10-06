@@ -37,4 +37,23 @@ class LoanTest {
             assertTrue(loan.isPersonalLoanAvailable());
         }
     }
+
+    @Nested
+    class isGaranteedLoanAvailable {
+        @Test
+        void shouldBeAvailableWhenIncomeIsEqualOrLowerThan3000() {
+            doReturn(true).when(customer).isIncomeEqualOrLowerThan(3000.00);
+
+            assertTrue(loan.isGaranteedLoanAvailable());
+        }
+        @Test
+        void shouldBeAvailableWhenIncomeIsBetween3000And5000AgeIsLessThan30AndLocationIsSP() {
+            doReturn(false).when(customer).isIncomeEqualOrLowerThan(3000.00);
+            doReturn(true).when(customer).isIncomeBetween(3000.00, 5000.00);
+            doReturn(true).when(customer).isAgeLowerThan(30);
+            doReturn(true).when(customer).isFromLocation("SP");
+
+            assertTrue(loan.isGaranteedLoanAvailable());
+        }
+    }
 }
