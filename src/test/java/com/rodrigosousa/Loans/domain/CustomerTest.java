@@ -106,4 +106,21 @@ class CustomerTest {
             assertFalse(customer.isAgeLowerThan(25));
         }
     }
+
+    @Nested
+    class isFromLocation {
+
+        @Test
+        void shouldBeTrueWhenLocationIsTheSame() {
+            Customer customer = CustomerFactory.build("SP");
+
+            assertTrue(customer.isFromLocation("SP"));
+        }
+        @Test
+        void shouldBeFalseWhenLocationIsNotTheSame() {
+            Customer customer = CustomerFactory.build("SP");
+
+            assertFalse(customer.isFromLocation("RJ"));
+        }
+    }
 }
